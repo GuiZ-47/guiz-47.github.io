@@ -1,0 +1,124 @@
+/* CSS dédiée à l'habillage de la page sur un ordinateur */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+}
+
+body {
+	font-family: sans-serif, serif;
+
+}
+
+.background_stop{
+	background-image: url("../images/teka.jpg");
+	background-size: cover;
+	background-position: center top;
+}
+
+#compteur{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	height: 100vh;
+	width: 100dvw;
+	overflow: hidden;
+}
+
+#nb_compteur{
+	margin-bottom: 5vh;
+	height: 81px;
+	line-height: 81px;
+}
+
+/*Ici attention à bien conserver l'ordre des classes dans la feuille ! */
+.nb_compteur_1-4{
+	color: black;
+	font-size: 20px;
+}
+
+.nb_compteur_5-9{
+	color: blue;
+	font-size: 30px;
+}
+
+.nb_compteur_10-14{
+	color: blueviolet;
+	font-size: 50px;
+}
+
+.nb_compteur_15-19{
+	color: darkorange;
+	font-size: 70px;
+}
+
+.nb_compteur_20-24{
+	color: red;
+	font-size: 90px;
+}
+
+.nb_compteur_24-29{
+	color: green;
+	font-size: 90px;
+	font-family: serif;
+}
+
+.nb_compteur_30-34{
+	color: red;
+	font-size: 90px;
+	font-family: sans-serif;
+}
+
+#stop_compteur{
+	margin: 5vh;
+	min-height: 103px;
+	line-height: 103px;
+	text-align: center;
+}
+
+.stop_compteur_15-19{
+	color: darkorange;
+	font-size: 70px;
+}
+
+.stop_compteur_20-24{
+	color: red;
+	font-size: 90px;
+}
+
+.stop_compteur_25-29{
+	color: hotpink;
+	font-size: 30px;
+	line-height: 30px !important;
+	text-align: center;
+}
+
+#bouton_compteur{
+	min-width: 30vw;
+	min-height: 10vh;
+	font-size: 30px;
+	padding:0 5px ;
+	margin: 0 5vw;
+}
+
+.opacity_bouton{
+	opacity: 0.4;}
+
+#bouton_compteur:hover{
+	color: darkred;
+}
+
+#bouton_compteur:active{
+	color: white;
+	background-color: darkred;
+}
+
+#compteur img{
+	margin-top: 5vh;
+	max-height: 40vh;
+	max-width: 95vw;
+}

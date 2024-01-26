@@ -1,0 +1,586 @@
+/* CSS dédiée à l'habillage de la page version mobile */
+
+* {
+	margin: 0;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: #f1f1f1;
+
+
+}
+
+nav{
+	display: flex;
+	align-content: center;
+	justify-content: space-between;
+	height: 1.5em;
+	background-color: black;
+	color: white;
+	padding: 0 1em;
+}
+
+#container_principal{
+	display: flex;
+	flex-wrap: nowrap;
+}
+
+#bouton_menu{
+	background-color: black;
+	color: white;
+	border: none;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+#bouton_menu:hover{
+	color: gainsboro;
+}
+
+/*********************** Dashboard ***********************/
+
+#dashboard{
+	width:223px;
+	height: 100vh;
+	background-color: #ffffff;
+	overflow: hidden;
+	animation: close_menu 0.5s;
+	border-width: 2px;
+	border-color: black;
+	padding-left: 0;
+}
+
+#dashboard[open]{
+	animation: open_menu 0.5s;
+
+}
+
+::backdrop{
+	background-color: grey;
+	opacity:0.75;
+}
+
+#dashboard[open]::backdrop{
+	animation: open_backdrop 0.5s;
+}
+
+@keyframes open_menu{
+	0%{opacity: 0;
+		width: 0px;
+		display: none;}
+
+	100%{opacity: 1;
+		width: 223px;
+		display: block;}
+}
+
+
+/* Le navigateur Firefox n'affiche pas les 2 animations ci-dessous ! Car contrairement à d'autres navigateurs connus, Firefox ne gère pas encore totalement les animations qui comprennent la propriété "display".
+Il faut donc veiller à tester cette page avec un autre navigateur pour voir les 3 animations prévues*/
+
+@keyframes open_backdrop{
+	0%{opacity: 0;}
+	100%{opacity: 0.75;}
+}
+
+
+@keyframes close_menu{
+	0%{opacity: 1;
+		width: 223px;
+		display: block;}
+
+	100%{opacity: 0;
+		width: 0px;
+		display: none;}
+}
+
+#bouton_fermer{
+	position: absolute;
+	top: 0.5vw;
+	left: 0.5vw;
+	height: 20px;
+	width: 20px;
+	border: none;
+	background-color: black;
+	border-radius: 20%;
+	cursor: pointer;
+}
+
+#bouton_fermer:hover{
+	background-color:grey;
+}
+
+#bouton_fermer img{
+	width: 100%;
+}
+
+#dashboard_entête{
+	height: 100px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#profil_picture{
+	
+	height: 100%;
+	border-radius: 50%;
+	box-sizing: border-box;
+	padding: 15px;
+}
+
+#welcome{
+	padding: 5px 10px;
+	}
+
+#dashboard_entête div img{
+	height: 15px;
+	margin: 0 5px;
+}
+
+#dashboard h2{
+	margin-left: 0.8em;
+}
+
+#dashboard_ul {
+	list-style: none;
+	margin: 0.8em;
+	padding: 0;
+}
+
+#dashboard_ul li{
+	height: 2em;
+}
+
+#dashboard_ul a {
+	text-decoration: none;
+	color: inherit;
+
+	display: flex;  
+	align-items: center;
+	justify-content: flex-start;
+
+	height: 100%;  /*Pour ne pas laisser d'espace entre les zone cliquables (et ne pas avoir cet effet désagréable de curseur qui change constament de forme quand on le bouge sur le long du dashboard)
+					j'ai dabord changé <a> en display:block pour pouvoir changer sa taille avant de le mettre finalement en flex pour gérer aussi le centrage vertical du contenu de a. Il existe peut-être un moyen plus simple de gérer les tailles des zones cliquables d'un lien ? */
+}
+
+#dashboard_ul a img{
+	height: 1em;
+	padding: 0 5px;
+}
+
+
+h2{
+	margin: 0.8em 0;
+	font-weight: normal;
+}
+
+/*************************** Encadrés de couleurs ****************************************/
+
+#page_droite{
+	width: 100%;
+	padding: 1em 0.5em;
+	box-sizing: border-box;
+}
+
+h1{
+	white-space: nowrap ;
+	padding-bottom: 1em;
+
+}
+
+#cadres{
+	display:flex ;
+	flex-direction: column;
+	flex-wrap: nowrap;
+}
+
+.cadre{
+	width:100%;
+	height: 20vw;
+	padding: 5px 30vw 5px 5vw;
+	box-sizing: border-box;
+	color: white;
+
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	align-content: center;
+}
+
+#cadres div:first-child{
+	background-color:#f44336 ;
+	
+}
+
+#cadres div:last-child{
+	background-color:#ff9800 ;
+	
+}
+#cadres div:nth-child(2){
+	background-color:#2196f3 ;
+}
+
+#cadres div:nth-child(3){
+	background-color:#009688 ;
+}
+
+.cadre img{
+	height: 75%;
+	transition: all 1s;
+}
+
+.cadre:hover img{
+	height: 70%;
+}
+
+.nb_cadres{
+	text-align: right;
+	opacity: 0;
+	transition: all 1s;
+	font-weight: bold;
+	font-size: 25px;
+
+}
+
+.intitulé_cadres{
+	width: 100%;
+	opacity: 0;
+	transition: all 1s;
+}
+
+.cadre:hover .nb_cadres,
+.cadre:hover .intitulé_cadres{
+	opacity: 1;
+}
+
+/******************************** General Stats ****************************/
+
+#stats > *{
+	margin: 0.5em 0;
+}
+
+.barres_entières {
+	width: 100%;
+	height: 1.5em;
+	background-color:#9e9e9e ;
+}
+
+.barre {
+	height: 100%;
+	overflow: hidden;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	animation-name: barres_de_stats;
+	animation-duration: 2.5s;
+	animation-timing-function: ease-out;
+	animation-delay: 0.5s;
+	animation-fill-mode: backwards;
+
+}
+
+@keyframes barres_de_stats{
+	from{max-width: 0%} 
+	to{max-width: 75%}
+} /* J'ai animé le max-width et pas directement le width pour éviter de devoir faire 
+une animation personalisée pour chaque barre, c'est plus simple et plus "propre".
+	Par contre ça empêche d'avoir un arrêt "doux" des 2 barres du haut. Elles ont un arrêt plus brusque que la 3ème barre,
+ car elles ne bénéficient pas de l'attribut "animation-timing-function: ease-out;" */
+
+.vert{
+	background-color:#4caf50;
+	width: 25%;
+	color: white;
+}
+
+.orange{
+	background-color:#ff9800;
+	width: 50%;
+}
+
+.rouge{
+	background-color:#f44336;
+	width: 75%;
+	color: white;
+}
+
+
+.barre span {
+	animation-name: pourcentage;
+	animation-duration: 1s;
+	animation-delay: 2.5s;
+	animation-fill-mode: both;
+}
+
+
+@keyframes pourcentage {
+	0% {opacity: 0;
+		transform: translate3d(-1000px, 0, 0);
+		}
+
+	60% {
+	opacity: 1;
+	transform: translate3d(25px, 0, 0);
+	}
+
+	75% {
+	transform: translate3d(-10px, 0, 0);
+	}
+
+	90% {
+	transform: translate3d(5px, 0, 0);
+	}
+
+	100% {
+	transform: none;
+	}
+} 
+
+/******************************* Régions *****************************/
+#régions_et_feeds{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+		/**** Réorganisation des éléments ***/
+#régions_et_feeds > h2:nth-of-type(1){
+	order: 1;
+}
+
+#container_carte_région{
+	order: 2;
+}
+
+#régions_et_feeds > h2:nth-of-type(2){
+	order: 3;
+}
+
+#feeds{
+	order: 4;
+}
+			/*****************************/
+
+
+
+#container_carte_région{
+	display: flex;
+	align-items: center;
+	width: 100%;
+}
+
+#carte_région{
+	width: 100%;
+}
+
+#feeds{
+	display: grid;
+	grid-template-rows: repeat(7, 1fr);
+	grid-auto-flow: column;
+
+	width: 100%;
+	font-style: italic;
+}
+
+#feeds div{
+	display: grid;
+	grid-auto-flow: row;
+	grid-template-columns: 1fr 3fr 1fr;
+	align-items: center;
+	min-height: 2em;
+
+	
+}
+
+#feeds img {
+	height: 1em;
+	margin-left: 1em;
+}
+
+#feeds span:nth-of-type(1){
+	margin: 0 2vw;
+	
+}
+
+#feeds span:nth-of-type(2){
+	margin-right: 1em;
+	white-space: nowrap;
+}
+
+
+#feeds div:nth-child(even){
+	background-color: white;
+}
+
+/********************* Countries **********************/
+
+#countries_grid{
+	display: grid;
+	grid-template-rows: repeat(6, 1fr);
+	grid-auto-flow: column;
+	border: solid 1px #cccccc;
+}
+
+#countries_grid span{
+	padding: 10px;
+}
+
+#countries_grid span:nth-child(even){
+	background-color: white;
+}
+
+#countries_bouton{
+	background-color:#616161 ;
+	color: white;
+	padding: 2vw 0.5vw;
+	margin: 1.5vw 0;
+	border-radius: 0px;
+	border: none;
+	width: 100%;
+	font-size: 20px;
+}
+
+
+/*********************************** Recent Users **********************/
+
+#users_grid{
+	display: grid;
+	grid-template-rows: repeat(3, 1fr);
+	grid-template-columns: calc(2em + 20px);
+	grid-auto-flow: column;
+
+	border: solid 2px #cccccc;
+	background-color: white;
+	box-shadow: 0 0 10px 2px rgba(173, 173, 173) ;
+}
+
+.images_users{
+	padding: 10px;
+	width: 2em;
+	border-radius: 50%;
+}
+
+#users_grid span{
+	font-size: 1.5em;
+	line-height: calc(2em);
+}
+
+/******************************** Recent Comments ******************/
+
+#comments_grid{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	
+}
+.images_comments:nth-of-type(1){
+	order: 1;
+}
+
+.comments:nth-of-type(1){
+	order: 2;
+}
+
+.images_comments:nth-of-type(2){
+	order: 3;
+}
+
+.comments:nth-of-type(2){
+	order: 4;
+}
+
+.images_comments{
+	width: 120px;
+	border-radius: 50%;
+	padding: 1vw 0;
+	justify-self: left;
+}
+
+.comments {
+	width: 100%;
+	padding: 1vw 0 5vw 0;
+}
+
+.comments div{
+	padding: 0.5vw 0;
+}
+
+.nom_comments{
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.date_comments{
+	color: grey;
+/*	font-style: italic;*/
+}
+
+/*********************** Options ***********************/
+
+#options{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+
+	background-color: #616161;
+	width: calc(100% + 1em);
+	transform: translate(-0.5em);
+	color: white;
+	font-family: sans-serif;
+
+}
+
+#options div {
+	width: 90%;
+	margin: 2vw 0;
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+#options h3{
+	font-weight: normal;
+	margin: 0.5vw;
+	padding-bottom: 2px;
+	border-bottom: solid 5px;
+	width: 100%;
+	font-size: 16px;
+}
+
+#options div:nth-of-type(1) h3{
+	border-color: green;
+}
+
+#options div:nth-of-type(2) h3{
+	border-color: red;
+}
+
+#options div:nth-of-type(3) h3{
+	border-color: orange;
+}
+
+#options span{
+	font-size: 18px;
+	margin: 0.5vw;
+	font-size: 16px;
+}
+
+/***************************** Footer **********************/
+
+footer span{
+	font-size: 18px;
+	font-style: italic;
+}

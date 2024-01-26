@@ -1,0 +1,53 @@
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+}
+
+body {
+}
+
+h2{
+	color: lightblue;
+	padding: 0.5em 0 0.5em 0.5em;
+	box-sizing: border-box;
+	width: 50%;
+}
+
+#énoncé{
+margin: 1em;
+font-size: 20px;
+font-weight: bold;
+text-align: center;
+}
+
+#section_tableau{
+	display: flex;
+	flex-wrap: wrap;
+	align-content: center;
+	justify-content: space-around;
+	padding: 1vw;
+}
+
+.tableau{
+	width: 49%;
+	display: grid;
+	grid-row-gap: 0.5vh;
+	align-content: flex-start;
+	cursor: pointer;
+}
+
+.ville{
+	height: 2em;
+	line-height: 2em;
+	border: solid 0.5px black;
+	padding-left: 1em;
+	box-sizing: border-box;
+}
+
+.ville:hover{
+	background-color: lightblue;
+}

@@ -1,0 +1,807 @@
+html{
+	scroll-behavior: smooth;
+}
+
+body{
+	background-color: white;
+	margin: 0px; /*supression des marges auto sur les côtés pour un aspect plus "propre" avec les images de fond */
+	padding: 0px;
+	font-size: 18px;
+
+
+
+/*Charte de couleurs */
+	--main_color: #d6974c;
+	--main_color_darker: #a37339;
+	--main_color_clearer: #fcb159;
+
+	--secondary_color: #b0d3ff;
+	--secondary_color-darker: #7a96b0;
+	--secondary_color-darkest: #60768a;
+
+	--grey_color: #eceae6;
+
+	--main_gradient: linear-gradient(90deg,#b0d3ff 15%, #d6974c 70%);
+}
+
+/*-------------------------navigation--------------------------------*/
+
+nav{display: flex;
+	justify-content: center;
+
+	position: sticky;
+ 	top:0px;
+ 	z-index: 999;
+
+ 	background: var(--main_gradient);
+ 	color: white;
+ 	margin: 0px;
+ 	padding: 0px;
+ 	height: 34px;
+
+ 	font-size: 1.2em;
+ 	color: white;
+ }
+
+
+nav ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	cursor:default ;
+}
+
+nav li{
+	width: 170px;
+	text-align: center;	
+}
+
+nav a{
+	text-decoration: none;
+	color: white;
+	display: block;
+}
+
+#menu > li{
+	margin: 4px 0px;
+	overflow: hidden;
+}
+
+#menu > li span{
+	display: block
+}
+
+#menu > li,        /*barre de menu générale toujours affichée*/
+#menu > li span,
+#menu >li a{
+	background: linear-gradient(#aaa, #888 50%, #777 50%,#999);
+}
+
+#menu > li:hover,        /*barre de menu générale toujours affichée*/
+#menu > li:hover span,
+#menu >li:hover a{
+	background: linear-gradient(#ccc, #aaa 50%, #999 50%,#bbb);	
+}
+
+#menu li ul li{
+	border-bottom: solid;
+	border-color: var(--secondary_color-darkest);
+	border-width: 2px;
+ }
+
+#menu li ul li,
+#menu li ul li a{
+	background: var(--main_color);
+}
+
+#menu li:hover ul li,
+#menu li:hover ul li a{
+	background: var(--main_color);
+}
+
+#menu li ul li:hover,
+#menu li ul li:hover a{
+	background: var(--main_color_clearer);
+	color: var(--secondary_color-darkest);
+}
+
+#menu{display: flex;
+	align-items: flex-start;
+	flex-wrap: nowrap;
+	position: absolute;
+	top: 0;
+}
+
+
+#menu > li li {
+	display: inline-block;
+	color: black;
+}
+
+#menu > li li  a{
+	color: black;
+}
+
+#menu li ul{
+	max-height: 0px;
+	overflow: hidden;
+	transition: all 1s;
+	border-radius: 0 0 8px 8px;
+}
+
+#menu li:hover ul{
+	max-height:190px;
+}
+
+#menu > li:first-child {
+	border-right: 1px solid #777;
+	border-radius: 8px 0 0 8px;
+}
+#menu > li + li {
+	border-left: 1px solid #aaa;
+	border-right: 1px solid #777;
+}
+#menu > li:last-child {
+	border-right: 0;
+	border-left: 1px solid #aaa;
+	border-radius: 0 8px 8px 0 ;
+}
+
+/* Pour enlever les coins pointus de li en bas des listes déroulantes,
+ATTENTION le pseudo selecteur :has() ne fonctionnera pas sur Firefox avant fin deccembre !*/
+#menu li:hover:has(>ul){  
+	border-radius: 0 0 8px 8px;
+}
+
+
+
+/*--------------------section intro ---------------------------*/
+
+#intro{
+	background-image: url("images/cascade.jpg"); /* test de mettre l'image en fond via background image de CSS*/
+	background-size: 100%; /*pas de valeur définie pour la hauteur donc l'image garde le ratio*/
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-color: var(--main_color);
+
+	min-width: 1000px; /* à changer pour le CCS version-mobile,
+	 ce paramètre sert pour que les bloc ne dépassent pas de l'image en haut et en bas:
+	 on empêche l'image de trop se réduire quand l'affichege du navigateur est trop petit*/
+
+	display: flex;
+	flex-direction: column;
+/*	justify-content: center;*/
+
+	font-size:25px;
+
+}
+
+#intro > *{
+	margin: 20px;
+	padding: 5px;
+	border-radius: 10px;
+	/*sinon les bocs prennent toute la largeur*/
+	width: fit-content ; 
+	background-color: rgba(0, 0, 0, 0.6) ;
+	color: white;
+	position: relative;
+	left: 40px;
+	
+}
+
+h1{
+	font-size: 55px;
+	text-align: center;
+	margin: 0;
+}
+
+
+#projet_pro{
+	max-width: 50%;
+}
+
+.font_color {
+	color:var(--main_color);
+	
+}
+
+#lienCV{
+	border: double;
+	border-color: var(--main_color);
+}
+
+#lienCV a{
+	text-decoration: none;
+}
+
+/*---------------------------section informations--------------------------------------*/
+
+#section_infos{
+	display: flex;
+	flex-direction: column;
+	justify-content:center ;
+	align-items: center;
+	border-radius: 10px;
+	position: relative;
+
+	
+}
+
+.fond_infos:nth-of-type(1){
+	width: 100%;
+	height: 400px;
+	 background: var(--main_gradient);
+}
+.fond_infos:nth-of-type(2){
+	width: 100%;
+	height: 150px;
+	background: #e3e0daab;
+}
+
+#infos{
+	
+	display: flex ;
+	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	border-radius: 5%;
+	height: 500px; /*obligatoire en fexx direction : column sinon pas de retour à la ligne ?*/
+	width: 850px;
+	background-color: white;
+
+	box-sizing: border-box;
+	border: solid 2px var(--secondary_color-darkest);
+	
+	position: absolute;
+	}
+
+
+#infos > *{
+	border-radius: 10%;
+	margin: 10px;
+	padding: 5px;
+	width: 300px ; /*sinon les bocs prennent toute la largeur*/
+	height: fit-content;
+}
+
+#infos img{
+	
+	border-radius: 5%;
+	height: auto;
+	width: 450px;
+
+}
+
+#infos li{
+	margin: 5px;
+	list-style: none;
+
+}
+
+/*--------------------section réseaux sociaux----------------*/
+
+#réseaux{
+	display: flex;
+	justify-content: space-around;
+	align-content: center;
+	padding: 10px;
+	background-color: white;
+}
+
+#réseaux a{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	transition: all 2s;
+	max-height: 100px;
+	border-radius: 20%;
+	width: 20%
+}
+
+
+#réseaux a:hover{
+	width: 35%;
+}
+
+
+#facebook_image1{
+	transition: all 2s;
+	z-index: 99;
+	height: 100%;
+}
+
+#facebook_lien:hover #facebook_image1{
+	z-index: 99;
+	height: 60%;
+}
+
+#facebook_image2 {
+	transition: all 2s;
+	opacity:0.3;
+	height: 0%;
+	z-index: 1;
+	transform: translate(-100px);
+}
+
+#facebook_lien:hover #facebook_image2{
+	opacity: 1;
+	height: 35%;
+	z-index: 1;
+	transform: translate(0px)
+	}
+
+#linkedin_image1{
+	transition: all 2s;
+	z-index: 99;
+	height: 100%;
+}
+
+#linkedin_lien:hover #linkedin_image1{
+	z-index: 99;
+	height: 50%;
+}
+
+#linkedin_image2 {
+	transition: all 2s;
+	opacity:0;
+	height: 0%;
+	z-index: 1;
+	transform: translate(100px);
+}
+
+#linkedin_lien:hover #linkedin_image2{
+	opacity: 1;
+	height: 50%;
+	z-index: 1;
+	transform: translate(0px);
+	}
+
+#instagram_image1{
+	transition: all 2s;
+	z-index: 99;
+	height: 100%;
+}
+
+#instagram_lien:hover #instagram_image1{
+	z-index: 99;
+	height: 60%;
+}
+
+#instagram_image2 {
+	transition: all 2s;
+	opacity:0;
+	height: 0%;
+	z-index: 1;
+	transform: translate(-100px);
+}
+
+#instagram_lien:hover #instagram_image2{
+	opacity: 1;
+	height: 40%;
+	z-index: 1;
+	transform: translate(0px);
+	}
+
+#twitter_image1{
+	transition: all 2s;
+	z-index: 99;
+	height: 100%;
+}
+
+#twitter_lien:hover #twitter_image1{
+	z-index: 99;
+	height:60%;
+}
+
+#twitter_image2 {
+	transition: all 2s;
+	opacity:0;
+	height: 0%;
+	z-index: 1;
+	transform: translate(-100px);
+}
+
+#twitter_lien:hover #twitter_image2{
+	opacity: 1;
+	height: 40%;
+	z-index: 1;
+	transform: translate(0px);
+	}
+
+/*mettre des max widht pur éviter que ça sorte des bords de <a> ? 
+et changer la taille des boite quand hover */
+
+/*---------------------section compétences-------------------------------*/
+
+#compétences :nth-child(2){order: 1}
+#compétences :nth-child(3){order: 3}
+#compétences :nth-child(4){order: 2}
+#compétences :nth-child(5){order: 4}
+
+#compétences{
+	display: flex;
+	flex-wrap: wrap;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+
+	background-image: url("images/hand.webp"); /* test de mettre l'image en fond via background image de CSS*/
+	background-size: 100%; /*pas de valeur définie pour la hauteur donc l'image garde le ratio*/
+	background-position: center;
+	background-size: cover;
+	
+	background-color: var(--main_color); /*si l'image ne recouvre pas totalement le bloc*/
+	min-height: 300px;
+	margin-top: 0px;
+	padding-top: 0px;
+
+	 /*pour que les bloc ne dépassent pas de l'image on empêche l'image de trop se réduire quand l'affichege du navigateur est trop petit*/
+}
+
+.compétences{
+	
+	flex-basis: 30%;
+	border: solid;
+	border-radius: 5%;
+	border-color: var(--main_color);
+	min-width: 300px;
+	min-height: 400px;
+	margin:10px 20px;
+	padding: 5px;
+	background-color: var(--grey_color);
+
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	position: relative;
+	align-items: flex-start;
+}
+
+.compétences > *{
+	margin: 0px;
+	padding: px;
+}
+
+#compétences li{
+	margin-top: 10px;
+	font-weight: bold
+}
+
+.compétences ul{align-items: center;
+}
+
+#compétences h2{
+	flex-basis: 100%;
+	margin-top: 0px;
+
+}
+
+h3{
+	border: double;
+	border-radius: 20%;
+	color: var(--main_color);
+	padding:0px 10px 0px;
+	align-self: center;
+}
+
+.italic{
+	font-style: italic;
+}
+/*---------------expériences pro--------------------*/
+
+#experience_pro{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.container{
+	width: 35%;
+	margin:15px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.container:not(.image) *{
+	padding:0px 0px ;
+	max-width: 500px;
+	text-align: center;
+}
+
+.image{
+	
+/*	overflow: hidden;*/
+	box-sizing: border-box;
+}
+
+.image img{
+	border: solid;
+	margin: 5px;
+	color: black;
+	max-height: 450px;
+	max-width: 450px;
+	width: 100%;
+}
+
+.image:nth-of-type(2) img{
+	align-self: flex-end;
+}
+
+.description{
+/*	text-align: center;*/
+	padding-top: 15px;
+	margin-top: 15px;
+	}
+
+#experience_pro h2{
+	flex-basis: 100%;
+	margin-top: 0px;
+
+}
+
+/*-----------------------Cursus-----------------*/
+
+#cursus article{
+	border-radius: 10px;
+	background-color: var(--grey_color);
+	margin: 5px 30px;
+	padding: 5px;
+}
+
+#cursus{
+	padding-bottom: 20px;
+}
+
+/*------------------- Réalisations ----------------------------------*/
+
+html{
+--marge-réalisations : 0.5dvw;
+}
+
+.Width40AvecMarge{
+	width: calc(40% - 2*var(--marge-réalisations));
+	margin: 0 var(--marge-réalisations);
+}
+.Width50AvecMarge{
+	width: calc(50% - 2*var(--marge-réalisations));
+	margin: 0 var(--marge-réalisations);
+}
+.Width60AvecMarge{
+	width: calc(60% - 2*var(--marge-réalisations));
+	margin: 0 var(--marge-réalisations);
+}
+/*--------------------*/
+#réalisations{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#réalisations h2{
+	width: 100%;
+	margin: 0;
+}
+/*-------------*/
+#conteneur_description_réalisations{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1vh;
+	box-sizing: border-box;
+}
+
+#texte_description_réalisations{
+	text-align: left;
+	border-radius: 10px;
+	background-color: var(--grey_color);
+	margin: 5px 30px;
+	padding: 5px;
+}
+/*----------------*/
+
+#conteneur_titre_réalisations{
+	width: 100%;
+	overflow: hidden;
+	margin-top: var(--marge-réalisations);
+	padding: 0.5dvh;
+}
+
+#slide_titre_réalisations{
+	display: flex;
+	width: var(--width-slides);
+}
+
+.conteneur_h3_slide{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+}
+
+.conteneur_h3_slide h3{
+	text-align: center;
+	border-radius: 10px;
+	padding: 5px;
+	margin: 0;
+	font-size: 30px;
+	line-height: 0.8;
+}
+
+/*-----------------*/
+
+#témoignages_boutons{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #e96147;
+	height: 3.5vw;
+}
+
+.flèche_boutons{
+	height: 3vw;
+	border-radius: 50%;
+}
+
+.flèche_boutons:hover{
+	height: 3.5vw;
+	cursor: pointer;
+}
+
+#flèche_gauche{
+	margin-right: 0.5vw;
+}
+
+#flèche_gauche:hover{
+	margin-right: 0;
+}
+
+#flèche_droite{
+	transform: rotate(180deg);
+	margin-left: 0.5vw;
+}
+
+#flèche_droite:hover{
+	margin-left: 0;
+}
+
+.ronds_boutons{
+	height: 1vw ;
+	height: calc(5px + 0.8vw) ;
+	width: calc(5px + 0.8vw);
+	background-color:var(--grey_color) ;
+	margin: 5px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.ronds_boutons:hover{
+	background-color: var(--main_color);
+}
+
+.ronds_boutons.active{
+	background-color: var(--main_color);
+}
+
+
+/*-----------------*/
+
+#conteneur_slide_texte_réalisations{
+	overflow: hidden;
+}
+
+#slide_texte_réalisations{
+	width: var(--width-slides) ;
+	height: 100%;
+	display: flex;
+}
+
+.conteneur_p_slide{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	padding: 0.5vw;
+}
+
+.conteneur_p_slide p{
+	text-align: left;
+	border-radius: 10px;
+	background-color: var(--grey_color);
+	padding: 5px;
+	margin: 0;
+}
+/*------------------*/
+
+#conteneur_slide_image_réalisations{
+	display: grid;
+	align-items: center;
+	justify-content: center;
+
+	overflow: hidden;
+}
+
+#conteneur_slide_image_réalisations:hover{
+	border-color: var(--main_color);
+}
+
+#slide_image_réalisations{
+	width: var(--width-slides) ;
+	display: flex;
+}
+
+#slide_image_réalisations a{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	padding: 0.5vw;
+}
+
+#slide_image_réalisations img{
+	width: 100%;
+	border-radius: 15px;
+	border: 5px black solid;
+	box-sizing: border-box;
+}
+
+#slide_image_réalisations img:hover{
+	border-color: var(--main_color);
+}
+
+/*-----------------Divers--------------------------------------------*/
+
+h2{text-align: center;
+	color: var(--main_color);
+	background: var(--main_gradient);
+	padding: 10px;
+	color: var(--secondary_color-darkest);
+}
+
+.font_bold{
+	font-weight: bold;
+}
+
+
+#experience_pro p:not(.poste),
+#cursus p:not(.poste){
+	margin: 0px;
+	padding: 0px;
+}
+
+.poste{font-size: 25px ;
+	font-weight: bold;
+	margin-top: 5px;
+	margin-bottom: 2px;
+	padding-top: 5px;
+	padding-bottom: 0px;
+	text-align: center;
+}
+
+.info_poste{
+	text-align: center;
+}
+
+.date{
+	color: darkgrey;
+}
+
+.entreprise{
+	color: var(--main_color);
+}
+
+.description{
+	font-size:18px ;
+}

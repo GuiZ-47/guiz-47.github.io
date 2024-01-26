@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Analytics</title>
+		
+		<link rel="stylesheet" media="screen and (max-width: 875px)" href="css/mobile.css">
+		<link rel="stylesheet" media="screen and (min-width: 876px)" href="css/ordinateur.css">
+	</head>
+
+	<body>
+		<main>
+			<nav>
+				<button id="bouton_menu">Menu</button>
+				<p id="logo">Logo</p>
+			</nav>
+			<section id="container_principal">
+				<dialog id="dashboard">
+					<button id="bouton_fermer"><img src="assets/close.png">
+					</button>
+					<div id="dashboard_entête">
+						<img id="profil_picture" src="assets/avatar2.png">
+						<p id="welcome">Welcome, <b>Mike</b></p>
+						<div>
+							<img src="assets/envelope.png">
+							<img src="assets/man-user.png">
+							<img src="assets/settings-work-tool.png">
+						</div>
+					</div>
+
+					<div>
+						<h2>Dashboard</h2>
+
+						<ul id="dashboard_ul">
+							<li><a href=""><img src="assets/multiple-users-silhouette-dark.png">Overviews</a></li>
+							<li><a href=""><img src="assets/eye-open.png">Wiews</a></li>
+							<li><a href=""><img src="assets/multiple-users-silhouette-dark.png/">Traffic</a></li>
+							<li><a href=""><img src="assets/current-location.png/">Geo</a></li>
+							<li><a href=""><img src="assets/diamond.png/">Orders</a></li>
+							<li><a href=""><img src="assets/notifications-button.png/">News</a></li>
+							<li><a href=""><img src="assets/parthenon.png/">General</a></li>
+							<li><a href=""><img src="assets/history-clock-button.png/">History</a></li>
+							<li><a href=""><img src="assets/settings-work-tool.png/">Settings</a></li>
+						</ul>
+					</div>
+
+				</dialog>
+
+				<section id="page_droite">
+					<h1>My Dashboard</h1>
+					<section id="cadres">
+						<div class="cadre" >
+							<img src="assets/chat-bubble.png">
+							<span class="nb_cadres">52</span>
+							<span class="intitulé_cadres">Messages</span>
+						</div>
+						<div class="cadre" >
+							<img src="assets/eye-open-white.png">
+							<span class="nb_cadres">99</span>
+							<span class="intitulé_cadres">Views</span>
+						</div>
+						<div class="cadre" >
+							<img src="assets/sharing-interface.png">
+							<span class="nb_cadres">23</span>
+							<span class="intitulé_cadres">Shares</span>
+						</div>
+						<div class="cadre" >
+							<img src="assets/multiple-users-silhouette-white.png">
+							<span class="nb_cadres">50</span>
+							<span class="intitulé_cadres">Users</span>
+						</div>
+					</section>
+
+					<section id="stats">
+						<h2>General Stats</h2>
+
+						<p>New Users</p>
+						<div class="barres_entières">
+							<div class="barre vert">
+								<span>+25%</span>
+							</div>
+						</div>
+
+						<p>New Visitors</p>
+						<div class="barres_entières">
+							<div class="barre orange">
+								<span>50%</span>
+							</div>
+						</div>
+
+						<p>Bounce Rate</p>
+						<div class="barres_entières">
+							<div class="barre rouge">
+								<span>75%</span>
+							</div>
+						</div>
+						
+					</section>
+
+					<section id="régions_et_feeds">
+						<h2>Regions</h2>
+						<h2>Feeds</h2>
+						<div id="container_carte_région">
+							<img id="carte_région" src="assets/region.jpg">
+						</div>
+
+						<section id="feeds">
+							<div>
+								<img src="assets/man-user-blue.png" class="image_feeds">
+							<span>New record. over 90views.</span>
+							<span>10 mins</span>
+							</div>
+							<div>
+								<img src="assets/notifications-button-red.png" class="image_feeds">
+							<span>Databbase error.</span>
+							<span>15 mins</span>
+							</div>
+							<div>
+								<img src="assets/multiple-users-silhouette-yellow.png" class="image_feeds">
+							<span>New record. over 40 users.</span>
+							<span>17 mins</span>
+							</div>
+							<div>
+								<img src="assets/chat-bubble-red.png" class="image_feeds">
+							<span>New comments.</span>
+							<span>25 mins</span>
+							</div>
+							<div>
+								<img src="assets/bookmark-blue.png" class="image_feeds">
+							<span>Check transactions.</span>
+							<span>28 mins</span>
+							</div>
+							<div>
+								<img src="assets/open-laptop-computer.png" class="image_feeds">
+							<span>CPU overload.</span>
+							<span>35 mins</span>
+							</div>
+							<div>
+								<img src="assets/sharing-interface-green.png" class="image_feeds">
+							<span>New shares.</span>
+							<span>39 mins</span>
+							</div>
+						</section>
+					</section>
+					<section id="countries">
+						<h2>Countries</h2>
+						<div id="countries_grid">
+							<span>United States</span>
+							<span>UK</span>
+							<span>Russia</span>
+							<span>Spain</span>
+							<span>India</span>
+							<span>France</span>
+							<span>65%</span>
+							<span>157%</span>
+							<span>56%</span>
+							<span>21%</span>
+							<span>19%</span>
+							<span>15%</span>
+						</div>
+						<button id="countries_bouton">More Countries <span id="arrow_countries_bouton"> &#10132;</span> </button>
+					</section>
+
+					<section id="users">
+						<h2>Recent Users</h2>
+						<div id="users_grid">
+							<img src="assets/avatar2.png" class="images_users">
+							<img src="assets/avatar5.png" class="images_users">
+							<img src="assets/avatar6.png" class="images_users">
+							<span>Mike</span>
+							<span>Jill</span>
+							<span>Jane</span>
+						</div>
+					</section>
+
+					<section id="comments">
+						<h2>Recent Comments</h2>
+						<div id="comments_grid">
+							<img src="assets/avatar3.png" class="images_comments">
+							<img src="assets/avatar1.png" class="images_comments">
+							<div class="comments">
+								<div class="commments_entête">
+									<span class="nom_comments">John </span>
+									<span class="date_comments"> Sep 29. 2014. 9:12 PM</span>
+								</div>
+								<div class="commments_texte">
+									Keep up the GREAT work! I am cheering for you!! Lorem ipsumdolor sit amet. Lorem ipsum dolor sit amet, consectetur ipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+								</div>
+							</div>
+
+							<div class="comments">
+								<div class="commments_entête">
+									<span class="nom_comments">Bo </span>
+									<span class="date_comments"> Sep 28. 2014. 10:15 PM</span>
+								</div>
+								<div class="commments_texte">
+									Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+									
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<section id="options">
+						<div>
+							<h3>Demographic</h3>
+							<span>Language</span>
+							<span>Country</span>
+							<span>City</span>
+						</div>
+						<div>
+							<h3>System</h3>
+							<span>Browser</span>
+							<span>OS</span>
+							<span>More</span>
+						</div>
+						<div>
+							<h3>Target</h3>
+							<span>Users</span>
+							<span>Active</span>
+							<span>Geo</span>
+							<span>Interests</span>
+						</div>
+					</section>
+					<footer>
+						<h2>FOOTER</h2>
+						<span>Page réalisée en tant qu'exercice par Guillaume Engel, reproduite à partir du modèle de design de <a href="https://www.w3schools.com/w3css/tryw3css_templates_analytics.htm#" target="_blank">w3.css</a>
+							<br><br>
+							Éléments notables de l'exercice : Quelques animations dans les parties "My Dashboad" (au survol) et "Generals Stats" (au lancement de la page). La page existe en 2 versions selon la taille d'affichage. Dans sa version mobile le menu de navigation n'est pas affiché par default, c'est une fenêtre modale gérée avec du JavaScript.
+						</span>
+					</footer>
+				</section>				
+			</section>
+
+
+		</main>
+		<script type="text/javascript" src="javascript/Analytics_JS.js" ></script>
+	</body>
+</html>

@@ -1,0 +1,74 @@
+/* CSS dédiée à l'habillage de la page sur un ordinateur */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	scroll-behavior: smooth;
+	font-size: 62.5%;
+}
+
+body {
+	font-size: calc( 1em + 1vw);
+	font-family: sans-serif, serif;
+}
+
+
+/* astuce pour que la div soit aussi grande que l'image */
+#rick-troll {
+    min-width: 1px;
+    min-height: 1px;
+    display: inline-block;
+    position: relative;
+    max-width: 550px;
+}
+
+#img_troll {
+    display:none;
+}
+
+#rick-troll:hover #img_troll.clicked {
+   display: block;
+}
+
+#rick-troll:hover #img_rick.clicked {
+    display: none;  
+  }
+
+#audio_rickroll{
+	position: absolute;
+	top: 0;
+	left: 0px;
+	width: 100%;
+}
+
+#rick-troll:hover audio.clicked{
+	visibility: hidden;
+}
+
+main{
+	margin: 1dvh 10vw;
+	text-align: center;
+}
+
+main > *{
+	margin: 2dvh 0;
+	width: 100%;
+}
+
+main img{
+	max-width: 550px;
+	width: 100%;
+	margin: auto;
+}
+
+#LinkedIn{
+	text-decoration: none;
+}
+
+#p1{
+	font-size: calc( 1.4em - 1vw);
+	font-style: italic;
+}

@@ -1,0 +1,763 @@
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body * {
+	font-size: 15px;
+	position: relative;
+	font-family: sans-serif, serif;
+}
+
+/***************** Bouton Move-Top ***************/
+#bouton-move_top{
+	position: fixed;
+	z-index: 99;
+	top: 80dvh;
+	right: 0.5dvh;
+}
+
+/*************************  Header **************************/
+nav{ 
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	background-image: url(../images/nav.jpg); 
+}
+
+#logo {
+	display: flex;
+	align-items: center;
+	padding: 1vw 5vw;
+
+	color: white;
+}
+
+#logo span{
+	font-size: 30px;
+}
+
+#burger {
+	color:#f46449 ;
+	padding: 1vw 5vw;
+	font-size: 2em;
+}
+
+#contact {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-items: center;
+	background-color: black;
+	color: white;
+}
+
+#contact span{ 
+	padding: 0.5vw 1vw;
+}
+
+#mail_icon{
+	color: red;
+}
+
+/*************************** Intro ****************************************/
+
+#intro{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+
+	background-image: url(../images/b1.jpg);
+	background-position: center;
+	background-size: cover;
+	color: white;
+	box-sizing: border-box;
+	padding: 5vw 0 20vw;
+	animation: background-anim 20s infinite 1s;
+}
+
+@keyframes background-anim {
+  0%, 100% {background-image: url(../images/b1.jpg);
+  }
+  20%{background-image: url(../images/b2.jpg);
+  }
+  40%{background-image: url(../images/b3.jpg);
+  }
+  60%{background-image: url(../images/b4.jpg);
+  }
+  80%{background-image: url(../images/b5.jpg);
+  }
+}
+
+/* Pour assombrir le background sans assombrir le reste, j'ai utilisé cette méthode (avant de me rendre compte
+ qu'il y avait une autre image déjà assombrie dans le dossier d'images fourni...) et comme ça marche je l'ai gardé comme ça*/
+#intro::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background-color: #000;
+  	opacity: 0.4;
+    width: 100%;
+    height: 100%;
+    top: 0px; /* pour éviter le décalage vertical si les padding-top et padding-bottom de #intro sont différents */
+}
+
+
+#intro > *{
+	margin: 5px;
+	margin-left: 3vw;
+}
+
+#intro div:nth-of-type(1){
+	font-size: 25px ;
+	font-weight: bold;
+}
+
+#intro h1{
+	font-size: 40px ;
+	font-weight: bold;
+}
+
+#intro div:nth-of-type(2){
+	font-size: 20px ;
+	font-weight: bold;
+}
+
+#intro div:nth-of-type(3){
+	font-size: 20px ;
+	background-color: #e96147;
+	padding: 5px;
+}
+
+/************************************ About US ******************/
+#about_us_container{
+	position: relative;
+	padding-top: 60vw;
+}
+				/******* Menus hover ronds *****/
+
+#container_principal_menu_ronds{
+	position: absolute;
+	top: -18vw;
+	z-index:10;
+	width: 100%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.container_rond{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+  	border: solid;
+	border-radius: 50%;
+	border-width: 5px;
+	border-color: grey;
+	margin: 2vw;
+	width: 35%;
+	box-sizing: border-box; /* Permet de ne pas faire tressauter les 4 ronds quand la bordure grise disparait en hover (à cause d'une variation de largeur qui est en %)*/
+}
+
+
+.container_rond:hover { 
+  	border:none;
+/*  border-color:transparent; */
+}  								/* Enlever la bordure grise en hover a aussi pour effet secondaire de faire zoomer légèrement l'image
+ 								(à cause de "box-sizing : border box")  On pourrait empêcher ça en gardant plutôt la bordure mais en la rendant transparante,
+ 					 			mais je préfère garder l'effet de zoom.*/ 
+
+
+.container_rond img{
+	width: 100%;
+	border-radius: 50%;
+}
+
+.surcouche{
+	visibility: hidden;
+	
+	position: absolute;
+	width: 100%;
+	height: 100%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	background: rgba(197, 102, 82, 0.6);
+	border-radius: 50%;
+	border-style: solid;
+	border-color: rgba(197, 102, 82, 0.8);
+	border-width: 10px;
+	box-sizing: border-box;
+}
+
+.container_rond:hover .surcouche{
+	visibility: visible;
+}
+
+.surcouche span{
+	color: white;
+	font-size: calc( 1em + 0.5vw);
+}
+
+	/**************  About Us Texte + Images ******************/
+
+#about_us{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+h2 {
+	font-size: 30px;
+	width: 100%;
+	text-align: center;
+}
+
+h2:first-letter {
+	font-size-adjust: 1.2;
+	color: #e96147 ;
+}
+
+#about_us_texte{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	align-content: center;
+	margin:2vw 5vw;
+	width: 100%;
+}
+
+#about_us_texte > *{
+	text-align: left;
+	padding: 1vw 2vw;
+}
+
+#about_us_texte h3 {
+	font-weight: bold;
+	font-size: 18px
+}
+
+#about_us_texte p {
+	color: grey;
+	line-height: 1.5em;
+	font-size: 17px;
+}
+
+#about_us_images{
+	width: 100%;
+	margin-top: 4vw;
+	margin-bottom: 2vw;
+	position: relative;
+	display: flex;
+	justify-content: center;
+}
+
+#about_us_images img{
+
+	border: solid 5px #e96147;
+	width: 40%;
+	max-width: 200px;
+	margin-top: 10vw;
+}
+
+#about_us_images img:nth-of-type(2){
+	position: relative;
+	left: -6vw;
+	top: -15vw;
+}
+
+/***********************  Statistiques ***********/
+
+#statistiques_container{
+	margin-top: 2vw;
+}
+
+#statistiques_container > *{
+	width: 100%;
+	height: 100%;
+}
+
+#statistiques_container_image{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+#statistiques_container img{
+	width: 100%; 
+}
+
+
+#statistiques_background{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+
+	background-color: #e96147;
+	box-sizing: border-box;
+	padding: 3vw;
+	height: 63vw;
+}
+
+#statistiques_background > div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	background-color: white;
+	box-sizing: border-box;
+	margin: 2vw ;
+	
+	width:calc(50% - 4vw) ;
+	height: calc(50% - 4vw);
+}
+
+.stats_nb{
+	font-weight: bold;
+	color: #f4792c;
+	font-size: 35px;
+}
+
+/************************ Menu ************************/
+
+#menu_container{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-content: space-around;
+	margin: 2vw;
+}
+
+#menu_container h2{
+	width: 100%;
+	margin: 2vw;
+}
+
+
+.menu{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	width:85%;
+	margin: 2vw 0.5vw;
+}
+
+.menu img{
+	width: 100%;
+}
+
+.menu div{
+	width: 80%;
+	background-color: #e96147;
+	text-align: center;
+	margin: 2vw;
+	padding:2vw 0;
+	color: white;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+/********************* Horaires ***********************/
+
+#horaires_container{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	background-image: url(../images/nav.jpg);
+	background-position: center;
+	background-size: cover;
+}
+
+#horaires_container > *:not(#horaires):not(h3) {
+	/*! width: 30%; */
+}
+
+#horaires_container h3{
+	color: white;
+	width: 100%;
+	text-align: center;
+	margin: 4vw;
+	font-size: 25px;
+}
+
+#horaires_container > *:not(h3){
+	margin-bottom: 5vw;
+}
+
+			/********** Menu déroulant ************/
+			
+#menu_déroulant{
+	list-style-position: inside;
+	width: 90%;
+}
+
+.dropdown{
+	margin: 2px;
+	background-color: white;
+}
+
+.dropdown label{
+	display: inline-block;
+	width: 100%;
+}
+
+.dropdown label:hover{
+	background-color: #e96147 ;
+	color: white;
+}
+
+.dropdown span{
+	margin: 0 5px;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.dropdown ul{
+	padding: 1vw 0vw;
+}
+
+.dropdown a{
+	text-decoration: none;
+	color: black;
+	font-size: 14px;
+}
+
+.dropdown label,
+.dropdown li{
+	padding: 1vw;
+	padding-left: 3vw;
+} /* Le padding fait déborder <label> de son parent .dropdown, car il prend déjà 100% de la largeur de son parent,
+ ça donne un feedback inattendu mais sympa pour le hover.*/
+							/****************/
+
+#horaires{
+	color: white;
+	max-width: 90%;
+}
+
+#horaires > *{
+	margin: 2vw 0;
+}
+
+#horaires div:first-of-type{
+	font-weight: bold;
+	font-size: 20px;
+}
+
+#horaires :not(div:first-of-type){
+	font-size: 17px;
+}
+
+#horaires_img{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	overflow: hidden;
+	width: 80%;
+	min-width: 20%;
+	border-radius: 10%;
+	border-color: #e96147;
+	border-width: 5px;
+	border-style: solid;
+}
+
+#horaires_img img{
+	width: 100%;
+}
+
+/******************* Testimonials **********************/
+
+#témoignages{
+	display: flex;
+	flex-direction: column;
+	padding: 3vw 0;
+}
+
+#témoignages h2{
+	padding-bottom: 3vw;
+}
+
+#témoignages_milieu{
+	display: flex;
+	flex-direction: column;
+	justify-content:center ;
+	align-items: center;
+}
+
+#container_témoignages_images {
+	width: 30%;
+	min-width: 120px;
+	margin: 0 3vw;
+	overflow: hidden;
+}
+
+#container_témoignages_images img{
+	border: solid 4px #e96147;
+	width: 100%;
+	margin: 0 0.5vw;
+}
+
+#témoignages_texte{
+	width: 80%;
+	overflow: hidden;
+}
+
+.container_témoignages{
+	width: 100%;
+	background-color: #eeeeee ;
+	border: solid 1vw #e2dfdf;
+	padding: 3vw;
+	line-height:1.5em ;
+	margin-right: 2vw;
+}
+
+.quote{
+	color: #e96147;
+	font-size: 25px;
+}
+
+#témoignages_boutons{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #e96147;
+	margin: 1vw;
+}
+
+.carrés_boutons{
+	height: 0.5em ;
+	width: 0.5em;
+	background-color:#eaafa2 ;
+	margin: 5px;
+	transform: translate(0px, 1px);
+}
+
+#triangle{
+ display : inline-block;
+ height : 0;
+ width : 0;
+ border-top : 12px solid transparent;
+ border-bottom : 12px solid transparent;
+ border-left : 20px solid #e96147;
+ transform: rotate(-90deg);
+}
+
+		/***************diaporama********/
+
+.diaporama {
+  animation: slide 13.5s ease infinite 0s;
+  width: 400%;
+  height: 100%;
+  display: flex;
+}
+
+@keyframes slide {
+  0%, 14.81%, 100% {
+    transform: translate(0,0);
+  }
+  25.93%, 40.74% {
+    transform: translate(-24.99%,0);
+  }
+  51.85%, 66.67% {
+    transform: translate(-50%,0);
+  }
+  77.78%, 92.59% {
+    transform: translate(-75%,0);
+  }
+}
+
+.couleur_bouton1 {
+  animation: bouton1 13.5s infinite 0s;
+}
+
+@keyframes bouton1 {
+  0%, 14.81%, 100% {background-color:#e96147
+  }
+  40.74% {background-color:#eaafa2
+  }
+  66.67% {background-color:#eaafa2
+  }
+  92.59% {background-color:#eaafa2
+  }
+}
+
+.couleur_bouton2 {
+  animation: bouton2 13.5s infinite 0s;
+}
+
+@keyframes bouton2 {
+  0%, 14.81%, 100% {background-color:#eaafa2
+  }
+  40.74% {background-color:#e96147
+  }
+  66.67% {background-color:#eaafa2
+  }
+  92.59% {background-color:#eaafa2
+  }
+}
+
+.couleur_bouton3 {
+  animation: bouton3 13.5s infinite 0s;
+}
+
+@keyframes bouton3 {
+  0%, 14.81%, 100% {background-color:#eaafa2
+  }
+  40.74% {background-color:#eaafa2
+  }
+  66.67% {background-color:#e96147
+  }
+  92.59% {background-color:#eaafa2
+  }
+}
+
+.couleur_bouton4 {
+  animation: bouton4 13.5s infinite 0s;
+}
+
+@keyframes bouton4 {
+  0%, 14.81%, 100% {background-color:#eaafa2
+  }
+  40.74% {background-color:#eaafa2
+  }
+  66.67% {background-color:#eaafa2
+  }
+  92.59% {background-color:#e96147
+  }
+}
+
+/****************************** Footer *********************/
+
+footer{
+	background-color:#192021;
+}
+
+#footer_main_div{
+	margin: auto;
+	width: 85%;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: white;
+}
+
+footer a{
+	text-decoration: none;
+	color: #8c8d8d;
+}
+
+footer hr{
+	width: 100%;
+	color: #8c8d8d;
+	border-radius: 50%;
+}
+
+footer hr:nth-of-type(1){
+	margin-top: 2vw;
+}
+
+footer hr:nth-of-type(2){
+	margin-bottom: 2vw 0;
+}
+
+footer hr:nth-of-type(3){
+	margin: 2vw 0;
+}
+
+footer h3{
+	font-size: 35px;
+	color: white;
+	font-weight: normal;
+	margin-bottom: 3vw;
+}
+
+#footer_haut{
+	display: flex;
+	justify-content: space-around;
+}
+
+#footer_haut > *{
+	padding: 2vw 1vw;
+	margin: 0vw 1vw;
+	border-bottom: solid 3px transparent;
+	transition: color 0.8s;
+}
+
+#footer_haut > a:hover{
+	border-bottom: solid 3px #e96147;
+	color: #e96147;
+}
+
+#footer_milieu{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+
+	color: #8c8d8d;
+}
+
+#footer_milieu > *{
+	margin: 2vw 3vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+#footer_milieu > *:not(h4):not(h3):not(#footer_beverages){
+	line-height: 1.8em;
+}
+
+#footer_beverages{
+	min-width: 20%;
+}
+
+#footer_réseaux div{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+#footer_réseaux a{
+	margin-right: 2vw;
+}
+
+footer h4{
+	color: #e96147;
+	margin-bottom: 1vw;
+	white-space: nowrap;
+}
+
+#footer_bas {
+	font-style:italic ;
+	font-size: 12px;
+	padding-bottom: 2vw;
+	color: #8c8d8d;
+}
+
+#footer_bas a{
+	text-decoration: underline;
+	color: #e96147;
+}

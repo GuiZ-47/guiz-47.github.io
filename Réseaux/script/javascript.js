@@ -23,8 +23,6 @@ function onmousedown(){
 }
 
 
-
-
 // Lancement de l'audio au clic sur le bouton de lecture
 audio.addEventListener('play',play_button_pressed);
 
@@ -42,3 +40,11 @@ function play_button_pressed(){
      }
 }
 
+// On assigne pendant quelques secondes la classe .actif sur l'image qui a été cliquée, pour déclencher(sur mobile) ou faire persister après un hover(sur PC) l'image du troll
+let timerTrollFace
+function setActifClassTemporarily(lienCliqué) {
+     // Pour éviter un clignotement de l'image au spam clic
+     clearTimeout(timerTrollFace);
+     lienCliqué.classList.add("actif");
+     timerTrollFace = setTimeout(function() {lienCliqué.classList.remove("actif")}, 750);
+}

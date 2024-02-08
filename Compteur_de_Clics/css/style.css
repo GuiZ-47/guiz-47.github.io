@@ -98,11 +98,27 @@ body {
 }
 
 #bouton_compteur{
-	min-width: 30vw;
+	width: 250px;
 	min-height: 10vh;
 	font-size: 30px;
 	padding:0 5px ;
 	margin: 0 5vw;
+	top: 0;
+	left: 0;
+	transition: top 0.3s ease-out,
+				left 0.3s ease-out,
+				transform 1s ease-out;
+}
+
+#bouton_compteur.random_position{
+	position: absolute;
+	top :var(--translateY);
+	left: var(--translateX);
+	margin: 0;
+}
+
+#bouton_compteur.rotation{
+	transform: rotate(var(--rotation));
 }
 
 .opacity_bouton{

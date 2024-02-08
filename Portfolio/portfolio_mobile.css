@@ -1,0 +1,974 @@
+html{
+	scroll-behavior: smooth;
+}
+
+body{
+	background-color: white;
+	margin: 0px; /*supression des marges auto sur les côtés pour un aspect plus "propre" avec les images de fond */
+	padding: 0px;
+	font-size: 18px;
+
+
+
+/*Charte de couleurs */
+	--main_color: #d6974c;
+	--main_color_darker: #a37339;
+	--main_color_clearer: #fcb159;
+
+	--secondary_color: #b0d3ff;
+	--secondary_color-darker: #7a96b0;
+	--secondary_color-darkest: #60768a;
+
+	--grey_color: #eceae6;
+
+	--main_gradient: linear-gradient(90deg,#b0d3ff 15%, #d6974c 70%);
+}
+
+.PC{
+	display:none !important;
+}
+
+/*-------------------------navigation--------------------------------*/
+
+ main *{
+ 	scroll-margin-top: 33px;
+ }
+
+nav{display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: center;
+
+	position: sticky;
+ 	top:0px;
+ 	z-index: 999;
+
+ 	background: var(--main_gradient);
+ 	color: white;
+ 	margin: 0px;
+ 	padding: 0px;
+ 	height: 34px;
+
+ 	font-size: 1.2em;
+ 	color: white;
+ }
+
+/*Boutons navigation mobile*/
+nav button{
+	margin: 0.2dvh 0.5dvw;
+	height: 90%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(#aaa, #888 50%, #777 50%,#999);
+	border-radius: 5px;
+}
+
+nav button a{
+	height: 100%;
+	display: flex !important;
+	align-items: center;
+	justify-content: center;
+}
+
+nav button img{
+	height:34px;
+	padding:0 2vw;
+	color: white;
+}
+
+nav button#bouton_CV img{
+	height: 30px;
+}
+
+/*Menu Burger*/
+#menu{
+	position: absolute;
+	top: 100%;
+  	left: 50%;
+  	transform: translateX(-50%);
+
+	display: flex;
+	align-items: flex-start;
+	flex-wrap: nowrap;
+
+	border-radius:8px;
+	white-space: nowrap;
+	border: 2px solid transparent;
+	box-shadow: 15px 15px 20px 0px rgba(0,0,0,0.0);
+
+	max-height: 0px;
+	overflow: hidden;
+	transition-property: max-height, border, box-shadow;
+	transition-duration: 0.5s;
+}
+
+/*Ouverture du menu burger*/
+#menu.ouvert {
+	border: 2px solid var(--secondary_color-darkest);
+	box-shadow: 15px 15px 20px 0px rgba(0,0,0,0.6);
+	max-height: 295px;
+}
+
+nav ul{
+	display: flex;
+	flex-direction: column;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	cursor: default;
+}
+
+nav li{
+	text-align: center;	
+}
+
+nav a{
+	text-decoration: none;
+	color: white;
+	display: block;
+}
+
+
+#menu > li{
+	overflow: hidden;
+	width: 100%;
+}
+
+#menu > li span{
+	display: block;
+	padding: 0 0.5dvw;
+}
+
+#menu > li,        /*barre de menu générale toujours affichée*/
+#menu > li span,
+#menu >li a{
+	background: linear-gradient(#aaa, #888 50%, #777 50%,#999);
+}
+
+        /*barre de menu générale toujours affichée*/
+#menu > li span:active,
+#menu > li a:active{
+	background: linear-gradient(#ccc, #aaa 50%, #999 50%,#bbb);	
+}
+
+#menu li ul li{
+	border-bottom: solid;
+	border-color: var(--secondary_color-darkest);
+	border-width: 2px;
+ }
+
+#menu li ul li,
+#menu li ul li a{
+	background: var(--secondary_color);
+}
+
+#menu li ul li:active,
+#menu li ul li:active a{
+	background: var(--main_color);
+	color: black;
+}
+
+#menu > li li {
+	display: inline-block;
+	color: black;
+}
+
+#menu > li li  a{
+	color: black;
+}
+
+#menu li ul{
+	max-height: 0px;
+	overflow: hidden;
+	transition: all 1s;
+}
+
+#menu li.ouvert ul {
+	max-height:190px;
+}
+
+/*--------------------section intro ---------------------------*/
+
+#intro{
+	background-image: url("images/la_rochelle.jpg");
+	background-size: 100%; /*pas de valeur définie pour la hauteur donc l'image garde le ratio*/
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-color: var(--main_color);
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+
+	font-size:20px;
+
+}
+
+#intro > *{
+	margin: 2dvh 2dvw 2dvh 2dvw;
+	padding: 1dvh 1dvw;
+	border-radius: 10px;
+	/*sinon les bocs prennent toute la largeur*/
+	width: fit-content;
+	background-color: rgba(0, 0, 0, 0.6) ;
+	color: white;
+}
+
+h1{
+	font-size: 42px;
+	text-align: center;
+	margin: 0;
+}
+
+
+#projet_pro{
+	max-width: 425px;
+}
+
+.font_color {
+	color:var(--main_color);
+	
+}
+
+#lienCV{
+	border: double;
+	border-color: var(--main_color);
+}
+
+#lienCV a{
+	text-decoration: none;
+}
+
+/*---------------------------section informations--------------------------------------*/
+
+#section_infos{
+	display: flex;
+	flex-direction: column;
+	justify-content:center ;
+	align-items: center;
+	position: relative;
+	background: var(--main_gradient);
+	padding: 3dvh 0;
+
+}
+
+.fond_infos:nth-of-type(1){
+	display: none;
+	width: 100%;
+	height: 420px;
+	background: var(--main_gradient);
+}
+.fond_infos:nth-of-type(2){
+	display: none;
+	width: 100%;
+	height: 170px;
+	background: #e3e0daab;
+}
+
+#infos{
+	
+	display: flex ;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+
+	border-radius: 40px;
+	background-color: white;
+
+	box-sizing: border-box;
+	border: solid 2px var(--secondary_color-darkest);
+	
+	margin: 0 20px;
+	max-width: 450px;
+}
+
+#infos_gauche,
+#infos_droite{
+	display: flex ;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+
+	max-width: 590px;
+}
+
+#infos_gauche{
+	overflow: hidden;
+	border-radius: 40px;
+	max-height: 250px;
+	/*! width: 100%; */
+	margin: 2dvw 3dvw 0 3dvw;
+	/*! box-sizing: border-box; */
+}
+
+#infos_gauche img{
+	border-radius: 40px;
+	/* height: 100%; */
+	padding: 20px;
+	width: 100%;
+}
+
+#infos_droite{
+	width: 100%;
+
+}
+
+#infos_droite > *{
+	border-radius: 10%;
+	margin: 10px;
+}
+
+#infos_droite > *:first-child {
+	margin-top: 20px;
+
+}
+
+#infos_droite > *:last-child {
+	margin-bottom: 20px;
+
+}
+
+#infos ul{
+	margin-bottom: 10px;
+	padding: 0;
+}
+
+#infos li{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+}
+
+/*--------------------section réseaux sociaux----------------*/
+
+#réseaux{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-content: center;
+	background-color: white;
+}
+
+/*++++++++++++++++++++++++++++ "animHide" : un template fait-maison d'une animation sur un duo d'images +++++++++++++++++++++++++++++++++*/
+
+html{
+/*	Attention à l'ordre des images dans le HTML, toujours mettre image1 en first-child*/
+	--image2_à_droite : -1;
+	--image2_à_gauche : 1;
+
+/*	Réglage de la taille des images*/
+	--taille_images : 20dvw;
+/*	Réglage de la durée des animations*/
+	--durée_animation : 1s;
+/*	Réglage du coeff de tranlation (à réduire si image2 dépasse de l'autre côté de image1 pendant l'animation */
+	--coeff_translation : 0.7;
+/*	Réglage en millisecondes de la durée de la class .actif après un clic sur un lien, nécessaire si on a placé sur la balise HTML : onclick="setActifClassTemporarily(this)" */
+	--durée_actif : 2500;
+}
+
+.lien_animHide {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	padding: 10px;
+
+	transition: all var(--durée_animation) ease-out;
+	height: var(--taille_images);
+
+/*	Réglage de la taille max des images */
+	max-height: 100px;
+/*	Réglage de la largeur qu'occupe un lien animé (ne change pas la taille des images qu'il contient)*/
+	width: 40%;
+}
+
+/* .lien_animHide:hover,
+.lien_animHide.actif {
+	Mettre un width supérieur à .lien pour créer un effet d'écartements des images adjacentes
+	width: ;
+} */
+
+.image1_animHide{
+	transition: all var(--durée_animation) ease-out;
+	z-index: 99;
+	order: 1;
+	height: 100%;
+}
+
+	/*	height à 50% par default (même hauteur pour image 1 & 2 quand elles sont visibles ensembles	*/
+	/*	Pour changer sur un lien en particulier, copier/coller l'exemple ci-dessous et utiliser identifiant du lien */
+.lien_animHide:hover .image1_animHide,
+.lien_animHide.actif .image1_animHide {
+	height: 50%;
+}
+
+/* Exemple pour ajuster la hauteur sur un lien en particulier :
+
+	#lienID.lien_animHide:hover .image1_animHide(ou .image2-à-droite_animHide ou .image2-à-gauche_animHide),
+	#lienID.lien_animHide.actif .image1_animHide(ou .image2-à-droite_animHide ou .image2-à-gauche_animHide){
+		height: XX% !important;
+	}
+
+*/
+
+.image2-à-droite_animHide{
+	transition: all var(--durée_animation) ease-out;
+	opacity: 0;
+	height: 0%;
+	z-index: 1;
+	order: 2;	/*image 2 après image 1 dans le flux*/
+	transform: translate(calc(var(--image2_à_droite) * var(--coeff_translation) * var(--taille_images)));
+}
+
+.image2-à-gauche_animHide{
+	transition: all var(--durée_animation) ease-out;
+	opacity: 0;
+	height: 0%;
+	z-index: 1;
+	order: 0;	/*image 2 avant image 1 dans le flux*/
+	transform: translate(calc(var(--image2_à_gauche) * var(--coeff_translation) * var(--taille_images)));
+}
+
+
+.lien_animHide:hover .image2-à-droite_animHide,
+.lien_animHide:hover .image2-à-gauche_animHide,
+.lien_animHide.actif .image2-à-droite_animHide,
+.lien_animHide.actif .image2-à-gauche_animHide {
+	opacity: 1;
+	height: 50%;
+	transform: translate(0px);
+}
+
+/*+++++++++++++++++++++++++ Hauteurs d'images personalisées +++++++++++++++++++++++++++++++++++*/
+
+
+#facebook.lien_animHide:hover .image1_animHide,
+#facebook.lien_animHide.actif .image1_animHide {
+	height: 60% !important; 
+}
+#facebook.lien_animHide:hover .image2-à-droite_animHide,
+#facebook.lien_animHide.actif .image2-à-droite_animHide {
+	height: 35% !important;
+}
+
+#instagram.lien_animHide:hover .image1_animHide,
+#instagram.lien_animHide.actif .image1_animHide {
+	height: 60% !important; 
+}
+#instagram.lien_animHide:hover .image2-à-droite_animHide,
+#instagram.lien_animHide.actif .image2-à-droite_animHide {
+	height: 40% !important;
+}
+
+#twitter.lien_animHide:hover .image1_animHide,
+#twitter.lien_animHide.actif .image1_animHide {
+	height: 60% !important; 
+}
+#twitter.lien_animHide:hover .image2-à-droite_animHide,
+#twitter.lien_animHide.actif .image2-à-droite_animHide {
+	height: 40% !important;
+}
+
+/*mettre des max widht pur éviter que ça sorte des bords de <a> ? */
+
+/*---------------------section compétences-------------------------------*/
+
+#compétences{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+
+	background-image: url("images/hand.webp"); /* test de mettre l'image en fond via background image de CSS*/
+	background-size: 100%; /*pas de valeur définie pour la hauteur donc l'image garde le ratio*/
+	background-position: left;
+	background-size: cover;
+	
+	background-color: var(--main_color); /*si l'image ne recouvre pas totalement le bloc*/
+	min-height: 300px;
+	margin-top: 0px;
+	padding-top: 0px;
+
+	 /*pour que les bloc ne dépassent pas de l'image on empêche l'image de trop se réduire quand l'affichege du navigateur est trop petit*/
+}
+
+.compétences{
+	
+	flex-basis: 30%;
+	border: solid;
+	border-radius: 5%;
+	border-color: var(--main_color);
+	box-sizing: border-box;
+	min-width: 250px;
+	margin:15px 20px;
+	padding: 5px;
+	background-color: var(--grey_color);
+
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	position: relative;
+	align-items: flex-start;
+}
+
+.compétences > *{
+	margin: 0px;
+}
+
+.compétences ul{
+	align-items: center;
+	padding-left: 1dvw;
+}
+
+#compétences li{
+	margin-top: 10px;
+	list-style-position: inside;
+	font-weight: bold;
+}
+
+#compétences h2{
+	flex-basis: 100%;
+	width: 100%;
+	margin: 0px;
+}
+
+h3{
+	border: double;
+	border-radius: 15px;
+	color: var(--main_color);
+	padding:0px 10px 0px;
+	align-self: center;
+	box-shadow: 5px 5px 5px 0px var(--main_color_darker);
+}
+
+.italic{
+	font-style: italic;
+}
+
+/*---------------expériences pro--------------------*/
+
+#experience_pro{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+/*Changement de l'ordre du flux pour la mise en page mobile*/
+/*Titre*/
+#experience_pro >*:nth-child(1) {
+	order: 1;
+}
+/*Exp 1 description*/
+#experience_pro >*:nth-child(2) {
+	order: 3;
+}
+/*Exp 1 image*/
+#experience_pro >*:nth-child(3) {
+	order: 2;
+}
+/*Exp 2 image*/
+#experience_pro >*:nth-child(4) {
+	order: 4;
+}
+/*Exp 2 description*/
+#experience_pro >*:nth-child(5) {
+	order: 5;
+}
+/*Exp 3 description*/
+#experience_pro >*:nth-child(6) {
+	order: 7;
+}
+/*Exp 3 image*/
+#experience_pro >*:nth-child(7) {
+	order: 6;
+}
+
+.container{
+	margin:15px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.container:not(.image) {
+	margin-top: 0;
+}
+
+.container.image {
+	margin-bottom: 0;
+}
+
+.container:not(.image) *{
+	padding:0px 0px ;
+	max-width: 500px;
+	text-align: center;
+}
+
+
+.image{
+	box-sizing: border-box;
+}
+
+.image img{
+	border: solid;
+	margin: 5px;
+	color: black;
+	max-height: 450px;
+	max-width: 450px;
+	width: 100%;
+}
+
+.description{
+/*	text-align: center;*/
+	padding-top: 15px;
+	margin-top: 15px;
+	}
+
+#experience_pro h2{
+	width: 100%;
+	margin: 0px;
+
+}
+
+/*-----------------------Cursus-----------------*/
+
+#cursus{
+	padding-bottom: 20px;
+}
+
+#cursus h2{
+	margin: 0;
+	margin-bottom: 20px;
+}
+
+#cursus article{
+	border-radius: 10px;
+	background-color: var(--grey_color);
+	margin: 5px 5px;
+	padding: 5px;
+}
+
+/*------------------- Réalisations ----------------------------------*/
+
+html{
+--marge-réalisations : 0.5dvw;
+}
+
+/* Classes désactivés sur version mobile*/
+/*.Width40AvecMarge{
+	width: calc(40% - 2*var(--marge-réalisations));  
+	margin: 0 var(--marge-réalisations);
+}
+
+.Width50AvecMarge{
+	width: calc(50% - 2*var(--marge-réalisations));
+	margin: 0 var(--marge-réalisations);
+}
+.Width60AvecMarge{
+	width: calc(60% - 2*var(--marge-réalisations));
+	margin: 0 var(--marge-réalisations);
+}*/
+
+/*--------------------*/
+#réalisations{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 10px;
+}
+
+#réalisations >*{
+	width: 100%;
+	box-sizing: border-box;
+}
+
+#réalisations h2{
+	width: 100%;
+	margin: 0;
+}
+/*-------------*/
+#conteneur_description_réalisations{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1vh;
+	box-sizing: border-box;
+}
+
+#texte_description_réalisations{
+	text-align: left;
+	border-radius: 10px;
+	background-color: var(--grey_color);
+	margin: 5px 30px;
+	padding: 5px;
+}
+
+#Nb_Semaines{
+	font-weight: bold;
+}
+
+/*----------------*/
+
+#conteneur_titre_réalisations{
+	width: 100%;
+	overflow: hidden;
+	margin-top: var(--marge-réalisations);
+	padding: 0.5dvh;
+}
+
+#slide_titre_réalisations{
+	display: flex;
+	width: var(--width-slides);
+	transition: none;
+}
+
+.conteneur_h3_slide{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+}
+
+.conteneur_h3_slide h3{
+	text-align: center;
+	border-radius: 10px;
+	padding: 5px;
+	margin: 0;
+	font-size: 30px;
+	line-height: 0.8;
+}
+
+/*-----------------*/
+
+#témoignages_boutons{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #e96147;
+	height: 40px;
+}
+
+.flèche_boutons{
+	height: 35px;
+	border-radius: 50%;
+}
+
+.flèche_boutons:hover{
+	height: 40px;
+	cursor: pointer;
+}
+#flèche_gauche:hover{
+	margin-right: 0;
+}
+#flèche_droite:hover{
+	margin-left: 0;
+}
+
+/*Bien mettre les :active après les :hover pour la priorité*/
+#flèche_gauche {
+	margin-right: 5px;
+}
+
+
+#flèche_droite {
+	transform: rotate(180deg);
+	margin-left: 5px;
+}
+
+/* version mobile on donne une taille différente à la flèche "normale" et active pour garder un feedback au clic, mais sans toucher à :hover pour ceux qui naviguent */
+.flèche_boutons:active{
+	height: 30px;
+}
+
+/*Modifier les marges pour éviter que les flèches se déplacent latéralment au changelent de taille, méthode pas très pratique même si ça fonctionne donc je garde.
+La prochainne fois disposer les flèches en position absolue pour éviter ce problème*/
+#flèche_gauche:active{
+	margin-right: 10px;
+}
+
+#flèche_droite:active{
+	margin-left: 10px;
+}
+
+
+.ronds_boutons{
+	height: 15px ;
+	width: 15px;
+	background-color:var(--grey_color) ;
+	margin: 5px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.ronds_boutons:hover{
+	background-color: var(--main_color);
+}
+
+.ronds_boutons.active{
+	background-color: var(--main_color);
+}
+
+
+/*-----------------*/
+
+#conteneur_slide_texte_réalisations{
+	overflow: hidden;
+	order: 2;
+}
+
+#slide_texte_réalisations{
+	width: var(--width-slides) ;
+	height: 100%;
+	display: flex;
+}
+
+.conteneur_p_slide{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	padding: 0.5vw;
+}
+
+.conteneur_p_slide p{
+	text-align: left;
+	border-radius: 10px;
+	background-color: var(--grey_color);
+	padding: 5px;
+	margin: 0;
+}
+/*------------------*/
+
+#conteneur_slide_image_réalisations{
+	display: grid;
+	align-items: center;
+	justify-content: center;
+
+	overflow: hidden;
+}
+
+#conteneur_slide_image_réalisations:hover{
+	border-color: var(--main_color);
+}
+
+#slide_image_réalisations{
+	width: var(--width-slides) ;
+	display: flex;
+}
+
+#slide_image_réalisations a{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	padding: 0.5vw;
+}
+
+#slide_image_réalisations img{
+	width: 100%;
+	border-radius: 15px;
+	border: 5px black solid;
+	box-sizing: border-box;
+}
+
+#slide_image_réalisations img:hover{
+	border-color: var(--main_color);
+}
+
+
+/*Animations des diapos de la section réalisation*/
+
+.slide{
+	transition:0.75s ease-out;
+}
+
+/* ----------------------footer------------------------ */
+footer{
+	flex-basis: 100%;
+	font-style: italic;
+	font-size: 18px;
+	text-align: center;
+	margin-bottom: 1vh;
+}
+
+footer p {
+	margin: 0 2vw;
+}
+
+footer img{
+	width: 120px;
+	float: left;
+	margin: 0 1vw 1vw 1vw;
+}
+
+footer hr{
+  width: 40%;
+  border-radius: 50%;
+  color: grey;
+  margin: auto;
+  margin-bottom: 2dvh;
+  margin-top: 2dvh;
+  color: lightgrey;
+}
+
+/*-----------------Divers--------------------------------------------*/
+
+h2{text-align: center;
+	color: var(--main_color);
+	background: var(--main_gradient);
+	padding: 10px;
+	color: var(--secondary_color-darkest);
+}
+
+.font_bold{
+	font-weight: bold;
+}
+
+
+#experience_pro p:not(.poste),
+#cursus p:not(.poste){
+	margin: 0px;
+	padding: 0px;
+}
+
+.poste{font-size: 25px ;
+	font-weight: bold;
+	margin-top: 5px;
+	margin-bottom: 2px;
+	padding-top: 5px;
+	padding-bottom: 0px;
+	text-align: center;
+}
+
+.info_poste{
+	text-align: center;
+}
+
+.date{
+	color: darkgrey;
+}
+
+.entreprise{
+	color: var(--main_color);
+}
+
+.description{
+	font-size:18px ;
+}

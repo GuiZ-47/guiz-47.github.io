@@ -15,39 +15,6 @@ body {
 	font-family: sans-serif, serif;
 }
 
-
-/* astuce pour que la div soit aussi grande que l'image */
-#rick-troll {
-    min-width: 1px;
-    min-height: 1px;
-    display: inline-block;
-    position: relative;
-    max-width: 550px;
-}
-
-#img_troll {
-    display:none;
-}
-
-#rick-troll:hover #img_troll.clicked {
-   display: block;
-}
-
-#rick-troll:hover #img_rick.clicked {
-    display: none;  
-  }
-
-#audio_rickroll{
-	position: absolute;
-	top: 0;
-	left: 0px;
-	width: 100%;
-}
-
-#rick-troll:hover audio.clicked{
-	visibility: hidden;
-}
-
 main{
 	margin: 1dvh 10vw;
 	text-align: center;
@@ -71,4 +38,46 @@ main img{
 #p1{
 	font-size: calc( 1.4em - 1vw);
 	font-style: italic;
+}
+
+/* astuce pour que la div soit aussi grande que l'image */
+#rick-troll {
+    min-width: 1px;
+    min-height: 1px;
+    display: inline-block;
+    position: relative;
+    max-width: 550px;
+}
+
+#img_troll {
+    display:none;
+}
+
+#rick-troll:hover #img_troll.clicked,
+#rick-troll.actif #img_troll.clicked {
+   display: block;
+}
+
+#rick-troll:hover #img_rick.clicked,
+#rick-troll.actif #img_rick.clicked {
+    display: none;  
+  }
+
+#audio_rickroll{
+	position: absolute;
+	top: 0;
+	left: 0px;
+	width: 100%;
+}
+
+#rick-troll:hover audio.clicked,
+#rick-troll.actif audio.clicked{
+	visibility: hidden;
+}
+
+/* Sur mobile, on enlève définitivement la barre de controle de l'audio après le 1er clic, pour éviter les conflits avec la fonction JS "setActifClassTemporarily" */
+@media screen and (max-width: 719px) {
+	#rick-troll audio.clicked {
+		visibility: hidden;
+	}
 }

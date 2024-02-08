@@ -43,6 +43,10 @@ nav{display: flex;
  	color: white;
  }
 
+ main *{
+ 	scroll-margin-top: 34px;
+ }
+
 
 nav ul{
 	list-style: none;
@@ -147,8 +151,7 @@ nav a{
 	border-radius: 0 8px 8px 0 ;
 }
 
-/* Pour enlever les coins pointus de li en bas des listes déroulantes,
-ATTENTION le pseudo selecteur :has() ne fonctionnera pas sur Firefox avant fin deccembre !*/
+/* Pour enlever les coins pointus de li en bas des listes déroulantes*/
 #menu li:hover:has(>ul){  
 	border-radius: 0 0 8px 8px;
 }
@@ -296,7 +299,7 @@ h1{
 	justify-content: center;
 	align-items: center;
 
-	transition: all 2s;
+	transition: all 2s ease-out;
 	max-height: 100px;
 	border-radius: 20%;
 	width: 20%
@@ -309,7 +312,7 @@ h1{
 
 
 #facebook_image1{
-	transition: all 2s;
+	transition: all 2s ease-out;
 	z-index: 99;
 	height: 100%;
 }
@@ -320,7 +323,7 @@ h1{
 }
 
 #facebook_image2 {
-	transition: all 2s;
+	transition: all 2s ease-out;
 	opacity:0.3;
 	height: 0%;
 	z-index: 1;
@@ -335,7 +338,7 @@ h1{
 	}
 
 #linkedin_image1{
-	transition: all 2s;
+	transition: all 2s ease-out;
 	z-index: 99;
 	height: 100%;
 }
@@ -346,7 +349,7 @@ h1{
 }
 
 #linkedin_image2 {
-	transition: all 2s;
+	transition: all 2s ease-out;
 	opacity:0;
 	height: 0%;
 	z-index: 1;
@@ -361,7 +364,7 @@ h1{
 	}
 
 #instagram_image1{
-	transition: all 2s;
+	transition: all 2s ease-out;
 	z-index: 99;
 	height: 100%;
 }
@@ -372,7 +375,7 @@ h1{
 }
 
 #instagram_image2 {
-	transition: all 2s;
+	transition: all 2s ease-out;
 	opacity:0;
 	height: 0%;
 	z-index: 1;
@@ -387,7 +390,7 @@ h1{
 	}
 
 #twitter_image1{
-	transition: all 2s;
+	transition: all 2s ease-out;
 	z-index: 99;
 	height: 100%;
 }
@@ -398,7 +401,7 @@ h1{
 }
 
 #twitter_image2 {
-	transition: all 2s;
+	transition: all 2s ease-out;
 	opacity:0;
 	height: 0%;
 	z-index: 1;
@@ -449,11 +452,11 @@ et changer la taille des boite quand hover */
 	border-radius: 5%;
 	border-color: var(--main_color);
 	min-width: 300px;
-	min-height: 400px;
+	min-height: 433px;
 	margin:10px 20px;
 	padding: 5px;
 	background-color: var(--grey_color);
-
+	
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
@@ -463,7 +466,6 @@ et changer la taille des boite quand hover */
 
 .compétences > *{
 	margin: 0px;
-	padding: px;
 }
 
 #compétences li{
@@ -482,10 +484,11 @@ et changer la taille des boite quand hover */
 
 h3{
 	border: double;
-	border-radius: 20%;
+	border-radius: 15px;
 	color: var(--main_color);
 	padding:0px 10px 0px;
 	align-self: center;
+	box-shadow: 5px 5px 5px 0px var(--main_color_darker);
 }
 
 .italic{
@@ -583,6 +586,7 @@ html{
 #réalisations{
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 }
 
 #réalisations h2{
@@ -609,7 +613,7 @@ html{
 /*----------------*/
 
 #conteneur_titre_réalisations{
-	width: 100%;
+	width: 60%;
 	overflow: hidden;
 	margin-top: var(--marge-réalisations);
 	padding: 0.5dvh;
@@ -618,6 +622,7 @@ html{
 #slide_titre_réalisations{
 	display: flex;
 	width: var(--width-slides);
+	transition: none;
 }
 
 .conteneur_h3_slide{
@@ -656,22 +661,27 @@ html{
 	height: 3.5vw;
 	cursor: pointer;
 }
-
-#flèche_gauche{
-	margin-right: 0.5vw;
-}
-
 #flèche_gauche:hover{
 	margin-right: 0;
 }
+#flèche_droite:hover{
+	margin-left: 0;
+}
 
-#flèche_droite{
+/*Bien mettre les :active après les :hover pour la priorité*/
+#flèche_gauche,
+#flèche_gauche:active{
+	margin-right: 0.5vw;
+}
+
+#flèche_droite,
+#flèche_droite:active{
 	transform: rotate(180deg);
 	margin-left: 0.5vw;
 }
 
-#flèche_droite:hover{
-	margin-left: 0;
+.flèche_boutons:active{
+	height: 3vw;
 }
 
 .ronds_boutons{
@@ -760,6 +770,15 @@ html{
 #slide_image_réalisations img:hover{
 	border-color: var(--main_color);
 }
+
+
+/*Animations des diapos de la section réalisation*/
+
+.slide{
+	transition:0.75s ease-out;
+}
+
+
 
 /*-----------------Divers--------------------------------------------*/
 

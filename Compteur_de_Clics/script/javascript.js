@@ -56,15 +56,24 @@ function changecolor() {
 		Compteur.classList.add("nb_compteur_1-4");
 		sectionCompteur.removeChild(images[4])
 	} 
-	else if (NbDeClics == 5) {
+	else if (NbDeClics >= 5 && NbDeClics < 10) {
 		Compteur.classList.add("nb_compteur_5-9");
+		Bouton.classList.add("random_position");
+		boutonTranslateY();
+		boutonTranslateX();
 	}
-	else if (NbDeClics == 10) {
+	else if (NbDeClics >= 10 && NbDeClics < 15) {
 		Compteur.classList.add("nb_compteur_10-14");
+		Bouton.classList.add("rotation");
+		boutonTranslateY();
+		boutonTranslateX();
+		boutonRotate();
 	}
 	else if (NbDeClics == 15) {
 		Compteur.classList.add("nb_compteur_15-19");
-		Stop.textContent = "STOP ?";
+		Bouton.classList.remove("random_position");
+		Bouton.classList.remove("rotation");
+		Stop.textContent = "STOP";
 		Stop.classList.add("stop_compteur_15-19");
 	}
 	else if (NbDeClics == 20) {
@@ -89,7 +98,6 @@ function changecolor() {
 		Bouton.classList.add("opacity_bouton");
 		audio[0].play(); //Effet sonore de grognement 
 	}
-
 	else if (NbDeClics == 35) {
 	    if (images[4].requestFullscreen) {
 	      images[4].requestFullscreen();
@@ -113,7 +121,6 @@ function changecolor() {
     	Compteur.className = "";
   		body.className ="";
   	}
-
   	else if (NbDeClics == 36) {
     	Compteur.textContent ="";
   		NbDeClics = 0;
@@ -121,13 +128,42 @@ function changecolor() {
   	}
 }
 
-///////////////////// Reset du compteur //////////////////////////////
+// Changement de la variable CSS qui décale le bouton sur l'axe Y
+function boutonTranslateY() {
+	let decalY;
+	//nb de pixel random entre 0 et la hauteur d'affichage
+	do {
+		decalY = Math.random()*window.innerHeight;
+	}
+	// On s'assure que le bouton ne ne colle trop le bord de la fenêtre d'affichage, ni ne déborde. Pour ça on prend en compte la taille du bouton. On randomise à nouveau si la valeure générée ne convient pas.
+	while (decalY < 5 || decalY > window.innerHeight - Bouton.offsetHeight - 5);
+	decalY = decalY + "px";
+	// On définit la valeur de la variable CSS associée à la propriété "left"
+	document.querySelector(':root').style.setProperty('--translateY', decalY);
+}
 
+// Changement de la variable CSS qui décale le bouton sur l'axe X
+function boutonTranslateX() {
+	let decalX;
+	do {
+		decalX = Math.random()*window.innerWidth;
+	}
+	while (decalX < 5 || decalX > window.innerWidth - Bouton.offsetWidth - 5);
+	decalX = decalX + "px";
+	document.querySelector(':root').style.setProperty('--translateX', decalX);
+}
 
+// Rotation du aléatoire du bouton
+function boutonRotate(){
+	let nbDeToursComplets = Math.round(Math.random()*10)*360;
+	let tourPartiel = Math.random()*360;
+	let rotationVarCSS = (nbDeToursComplets+tourPartiel)+"deg";
+	document.querySelector(':root').style.setProperty('--rotation',rotationVarCSS);
+}
 
-
-// idées pour améliorerla page :
+// idées pour améliorer la page :
 // -ajouter un compteur d'APM (clic/min) à la sortie du plein écran
 // -afficher un compteur de nb d'écrans cassés & nb de clics total à partir de la 2ème boucle
+
 
 

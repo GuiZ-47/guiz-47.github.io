@@ -271,7 +271,7 @@ h1{
 	margin: 20px;
 	overflow: hidden;
 	border-radius: 40px;
-	max-height: 490px;
+	height: 490px;
 }
 
 #infos_gauche img{

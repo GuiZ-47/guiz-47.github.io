@@ -930,10 +930,11 @@ footer hr{
 
 /*-----------------Divers--------------------------------------------*/
 
-h2{text-align: center;
+h2{
+	text-align: center;
 	color: var(--main_color);
 	background: var(--main_gradient);
-	padding: 10px;
+	padding: 10px 0;
 	color: var(--secondary_color-darkest);
 }
 

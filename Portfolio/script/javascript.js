@@ -82,20 +82,20 @@ let travaux = [
 		lien:"../Compteur_de_Clics/Compteur_de_Clics.html",
 		tags:"",
 	},
-	{
-		titre:"Sélecteur de Villes",
-		description:"Une liste de villes sélectionnables, via manipulation de tableaux JS et du DOM",
-		image:"images/images-projets/villes.png",
-		lien:"../Sélections_de_Villes/Sélections_de_Villes.html",
-		tags:"",
-	},
-	{
-		titre:"Formulaire",
-		description:"Un modèle de formulaire",
-		image:"images/images-projets/formulaire.png",
-		lien:"../Formulaire/formulaire.html",
-		tags:"",
-	},
+	// {
+	// 	titre:"Sélecteur de Villes",
+	// 	description:"Une liste de villes sélectionnables, via manipulation de tableaux JS et du DOM",
+	// 	image:"images/images-projets/villes.png",
+	// 	lien:"../Sélections_de_Villes/Sélections_de_Villes.html",
+	// 	tags:"",
+	// },
+	// {
+	// 	titre:"Formulaire",
+	// 	description:"Un modèle de formulaire",
+	// 	image:"images/images-projets/formulaire.png",
+	// 	lien:"../Formulaire/formulaire.html",
+	// 	tags:"",
+	// },
 ];
 
 const slideTitre = document.querySelector('#slide_titre_réalisations');
